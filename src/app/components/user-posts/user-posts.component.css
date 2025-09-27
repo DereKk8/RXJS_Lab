@@ -1,0 +1,285 @@
+/* Posts Container */
+.posts-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.posts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Post Card */
+.post-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  border: 1px solid #e5e7eb;
+  transition: box-shadow 0.2s ease;
+}
+
+.post-card:hover {
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Post Header */
+.post-header {
+  margin-bottom: 16px;
+  border-bottom: 1px solid #f3f4f6;
+  padding-bottom: 12px;
+}
+
+.post-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #1f2937;
+  margin: 0 0 8px 0;
+  line-height: 1.4;
+}
+
+.post-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.post-views {
+  font-size: 14px;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.post-tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  background: #dbeafe;
+  color: #1e40af;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Post Content */
+.post-content {
+  margin-bottom: 20px;
+}
+
+.post-body {
+  font-size: 16px;
+  line-height: 1.6;
+  color: #374151;
+  margin: 0;
+}
+
+/* Reactions Section */
+.reactions-section {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 16px;
+  background: #f9fafb;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #e5e7eb;
+}
+
+.reaction-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.reaction-icon {
+  font-size: 18px;
+}
+
+.reaction-count {
+  font-weight: 600;
+  color: #374151;
+  font-size: 16px;
+}
+
+.reaction-label {
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.reaction-total {
+  margin-left: auto;
+}
+
+.total-reactions {
+  font-size: 14px;
+  color: #6b7280;
+  font-style: italic;
+}
+
+/* Comments Section */
+.comments-section {
+  border-top: 1px solid #e5e7eb;
+  padding-top: 16px;
+}
+
+.comments-header {
+  margin-bottom: 12px;
+}
+
+.comments-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #374151;
+  margin: 0;
+}
+
+.comments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Comment Item */
+.comment-item {
+  background: #f8fafc;
+  border-radius: 8px;
+  padding: 16px;
+  border-left: 4px solid #3b82f6;
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.commenter-name {
+  font-weight: 600;
+  color: #1f2937;
+  font-size: 14px;
+}
+
+.commenter-username {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+.comment-likes {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+}
+
+.comment-like-icon {
+  font-size: 14px;
+}
+
+.comment-like-count {
+  font-size: 14px;
+  font-weight: 500;
+  color: #dc2626;
+}
+
+.comment-content {
+  margin: 0;
+}
+
+.comment-body {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #4b5563;
+  margin: 0;
+}
+
+/* No Comments State */
+.no-comments {
+  text-align: center;
+  padding: 24px;
+}
+
+.no-comments-text {
+  color: #9ca3af;
+  font-style: italic;
+  margin: 0;
+}
+
+/* Empty Posts State */
+.empty-posts-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  padding: 40px 20px;
+}
+
+.empty-state-content {
+  text-align: center;
+  max-width: 400px;
+}
+
+.empty-state-icon {
+  font-size: 64px;
+  margin-bottom: 16px;
+}
+
+.empty-state-title {
+  font-size: 24px;
+  font-weight: 600;
+  color: #374151;
+  margin: 0 0 8px 0;
+}
+
+.empty-state-message {
+  font-size: 16px;
+  color: #6b7280;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Responsive Design */
+@media (max-width: 640px) {
+  .post-card {
+    padding: 16px;
+    margin: 0 16px;
+  }
+  
+  .post-title {
+    font-size: 18px;
+  }
+  
+  .reactions-section {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  
+  .reaction-total {
+    margin-left: 0;
+  }
+  
+  .post-meta {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  
+  .comment-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+  
+  .comment-likes {
+    margin-left: 0;
+  }
+}

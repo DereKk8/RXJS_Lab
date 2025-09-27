@@ -1,0 +1,80 @@
+<div class="posts-container" *ngIf="hasPosts">
+  <div class="posts-list">
+    <div class="post-card" *ngFor="let post of posts">
+      
+      <!-- Post Header -->
+      <div class="post-header">
+        <h3 class="post-title">{{ post.title }}</h3>
+        <div class="post-meta">
+          <span class="post-views" *ngIf="post.views">{{ post.views }} views</span>
+          <div class="post-tags" *ngIf="post.tags && post.tags.length > 0">
+            <span class="tag" *ngFor="let tag of post.tags">#{{ tag }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Post Content -->
+      <div class="post-content">
+        <p class="post-body">{{ post.body }}</p>
+      </div>
+
+      <!-- Reactions Section -->
+      <div class="reactions-section">
+        <div class="reaction-item likes">
+          <span class="reaction-icon">👍</span>
+          <span class="reaction-count">{{ post.reactions?.likes || 0 }}</span>
+          <span class="reaction-label">Likes</span>
+        </div>
+        <div class="reaction-item dislikes">
+          <span class="reaction-icon">👎</span>
+          <span class="reaction-count">{{ post.reactions?.dislikes || 0 }}</span>
+          <span class="reaction-label">Dislikes</span>
+        </div>
+        <div class="reaction-total">
+          <span class="total-reactions">{{ getTotalReactions(post) }} total reactions</span>
+        </div>
+      </div>
+
+      <!-- Comments Section -->
+      <div class="comments-section">
+        <div class="comments-header">
+          <h4 class="comments-title">
+            Comments ({{ getCommentsForPost(post.id).length }})
+          </h4>
+        </div>
+        
+        <div class="comments-list" *ngIf="getCommentsForPost(post.id).length > 0; else noComments">
+          <div class="comment-item" *ngFor="let comment of getCommentsForPost(post.id)">
+            <div class="comment-header">
+              <span class="commenter-name">{{ comment.user.fullName }}</span>
+              <span class="commenter-username">@{{ comment.user.username }}</span>
+              <div class="comment-likes" *ngIf="comment.likes > 0">
+                <span class="comment-like-icon">❤️</span>
+                <span class="comment-like-count">{{ comment.likes }}</span>
+              </div>
+            </div>
+            <div class="comment-content">
+              <p class="comment-body">{{ comment.body }}</p>
+            </div>
+          </div>
+        </div>
+
+        <ng-template #noComments>
+          <div class="no-comments">
+            <p class="no-comments-text">No comments yet</p>
+          </div>
+        </ng-template>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- Empty State -->
+<div class="empty-posts-state" *ngIf="!hasPosts">
+  <div class="empty-state-content">
+    <div class="empty-state-icon">📝</div>
+    <h3 class="empty-state-title">No Posts Available</h3>
+    <p class="empty-state-message">This user hasn't created any posts yet.</p>
+  </div>
+</div>

@@ -1,0 +1,60 @@
+<div class="user-profile-container" *ngIf="hasValidUserData">
+  <div class="user-profile-card">
+    <!-- User Avatar -->
+    <div class="user-avatar-section">
+      <img 
+        class="user-avatar" 
+        [src]="user!.image" 
+        [alt]="fullName + ' avatar'"
+        (error)="$event.target.src='https://via.placeholder.com/128x128?text=User'"
+      >
+    </div>
+
+    <!-- User Information -->
+    <div class="user-info">
+      <div class="user-info-main">
+        <h2 class="user-fullname">{{ fullName }}</h2>
+        <p class="user-username">@{{ user!.username }}</p>
+        <p class="user-email">{{ user!.email }}</p>
+      </div>
+
+      <!-- Additional User Details -->
+      <div class="user-details">
+        <div class="user-detail-item" *ngIf="user!.age">
+          <span class="detail-label">Age:</span>
+          <span class="detail-value">{{ user!.age }}</span>
+        </div>
+        
+        <div class="user-detail-item" *ngIf="user!.gender">
+          <span class="detail-label">Gender:</span>
+          <span class="detail-value">{{ user!.gender }}</span>
+        </div>
+        
+        <div class="user-detail-item" *ngIf="user!.phone">
+          <span class="detail-label">Phone:</span>
+          <span class="detail-value">{{ user!.phone }}</span>
+        </div>
+        
+        <div class="user-detail-item" *ngIf="user!.university">
+          <span class="detail-label">University:</span>
+          <span class="detail-value">{{ user!.university }}</span>
+        </div>
+        
+        <div class="user-detail-item" *ngIf="user!.company?.name">
+          <span class="detail-label">Company:</span>
+          <span class="detail-value">{{ user!.company.name }}</span>
+        </div>
+        
+        <div class="user-detail-item" *ngIf="user!.company?.title">
+          <span class="detail-label">Position:</span>
+          <span class="detail-value">{{ user!.company.title }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- No User Data Message -->
+<div class="no-user-message" *ngIf="!hasValidUserData">
+  <p>No user data available</p>
+</div>
